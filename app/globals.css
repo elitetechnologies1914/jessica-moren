@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fff8ed;
+  --foreground: #262223;
 }
 
 @theme inline {
@@ -12,15 +12,85 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-padding-top: 7rem;
+  scrollbar-color: #d6a35a #6e1714;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #6e1714;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 3px solid #6e1714;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #e8cba8 0%, #b82d26 100%);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fff8ed 0%, #9c4a2d 100%);
+}
+
+@keyframes preloader-logo-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+    filter: blur(10px);
+  }
+
+  32% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  72% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0.72;
+    transform: translateY(0) scale(0.985);
+    filter: blur(0);
+  }
+}
+
+@keyframes preloader-sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(280%);
+  }
+}
+
+.preloader-logo-fade {
+  animation: preloader-logo-fade 2.4s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.preloader-sweep {
+  animation: preloader-sweep 1.55s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader-logo-fade,
+  .preloader-sweep {
+    animation: none;
+  }
 }
