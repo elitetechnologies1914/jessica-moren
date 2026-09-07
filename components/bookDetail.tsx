@@ -34,14 +34,14 @@ export default function BookDetail() {
           <motion.div
             animate={{ y: [0, -15, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="relative aspect-[2/3] w-full max-w-[390px] overflow-hidden rounded-[1.15rem] shadow-[0_26px_60px_rgba(110,23,20,0.26)]"
+            className="relative aspect-[1.44/1] w-full max-w-[560px]"
           >
             <Image
-              src="/images/finding-my-journey-cover.jpg"
-              alt="Finding My Journey cover by Irena Samantha Evangelista, showing a woman walking toward a sunlit horizon among butterflies"
+              src="/book-mockup.png"
+              alt="Finding My Journey 3D book mockup by Irena Samantha Evangelista"
               fill
-              sizes="(max-width: 768px) 80vw, 390px"
-              className="object-cover object-right"
+              sizes="(max-width: 768px) 100vw, 560px"
+              className="object-contain"
             />
           </motion.div>
         </motion.div>
