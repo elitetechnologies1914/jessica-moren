@@ -16,7 +16,7 @@ const navItems: NavItem[] = [
   { label: "Home", href: "#intro" },
   { label: "The Book", href: "#book-details" },
   { label: "The Journey", href: "#journey" },
-  { label: "About Raina", href: "#author" },
+  { label: "About Raina. S.E", href: "#author" },
   { label: "Reader Care", href: "#reader-care" },
 ];
 
@@ -46,7 +46,7 @@ export default function Header() {
                 aria-label="Home"
               >
                 <span className="flex flex-col leading-none text-[#fff8ed] transition-opacity duration-200 group-hover:opacity-90">
-                  <span className="font-serif text-lg tracking-[0.08em] sm:text-xl">RAINA SAMANTHA</span>
+                  <span className="font-serif text-lg tracking-[0.08em] sm:text-xl">RAINA. S.E</span>
                   <span className="mt-1 text-[0.55rem] font-semibold uppercase tracking-[0.28em] text-[#e8cba8]">Finding My Journey</span>
                 </span>
               </Link>
@@ -118,7 +118,7 @@ export default function Header() {
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,rgba(255,248,237,0.13),rgba(156,74,45,0.2)_42%,rgba(38,34,35,0.68))]" />
                 <div className="relative flex items-center justify-between">
                   <span className="flex flex-col leading-none text-[#fff8ed]">
-                    <span className="font-serif text-base tracking-[0.08em]">RAINA SAMANTHA</span>
+                    <span className="font-serif text-base tracking-[0.08em]">RAINA. S.E.</span>
                     <span className="mt-1 text-[0.5rem] font-semibold uppercase tracking-[0.24em] text-[#e8cba8]">Finding My Journey</span>
                   </span>
                   <button

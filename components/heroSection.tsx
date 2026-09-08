@@ -117,7 +117,7 @@ export default function HeroSection() {
             transition={{ duration: 1, ease: "easeOut", delay: 0.7 }}
             className={`${greatVibes.className} mt-8 text-3xl tracking-wide text-[#fff8ed]/90 drop-shadow-lg sm:mt-10 sm:text-[2.25rem]`}
           >
-           From an orphanage in Romania to a new life in Toronto, Raina Samantha Evangelista tells the truth about adoption, bullying, mental-health struggles, recovery, faith, love, and the decision to keep moving forward.
+           From an orphanage in Romania to a new life in Toronto, Raina. S.E tells the truth about adoption, bullying, mental-health struggles, recovery, faith, love, and the decision to keep moving forward.
           </motion.p>
 
           <motion.div 
@@ -141,7 +141,7 @@ export default function HeroSection() {
                 href="#author"
                 className="group relative inline-flex min-w-[16rem] items-center justify-center gap-3 rounded-full border border-white/20 bg-black/20 px-8 py-4.5 text-lg font-medium text-[#fff8ed] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-xl transition-all duration-300 hover:bg-white/10 hover:border-white/40"
               >
-                <span className="tracking-wide">Meet Raina</span>
+                <span className="tracking-wide">Meet Raina. S.E</span>
               </Link>
             </motion.div>
           </motion.div>

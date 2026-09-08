@@ -40,7 +40,7 @@ export default function Preloader() {
 
       <div className="relative flex flex-col items-center px-6 text-center">
         <p className="font-serif text-4xl tracking-[0.1em] text-[#fff8ed] preloader-logo-fade sm:text-5xl">
-          RAINA SAMANTHA
+          RAINA. S.E
         </p>
         <p className="mt-5 text-xs font-semibold uppercase tracking-[0.38em] text-[#e8cba8]/85">
           Finding My Journey

@@ -11,27 +11,27 @@ const cormorant = Cormorant_Garamond({
 
 const testimonialsData = [
   {
-    author: "Raina Samantha Evangelista",
+    author: "Raina. S.E",
     title: "From Finding My Journey",
     text: "My story is not over yet.",
   },
   {
-  author: "Raina's father, remembered in the memoir",
+  author: "Raina. S.E's father, remembered in the memoir",
   title: "Words for the road",
   text: "The train will get to its last stop, but you have to stop at every station in order to get there.",
   },
   {
-    author: "Raina Samantha Evangelista",
+    author: "Raina. S.E",
     title: "Words for the road",
     text: "I am not okay. I need help. And there is nothing wrong with asking for help.",
   },
   {
-    author: "Raina Samantha Evangelista",
+    author: "Raina. S.E",
     title: "Words for the road",
     text: "Tomorrow is a new day. It is okay to fall and get back up.",
   },
   {
-    author: "Raina Samantha Evangelista",
+    author: "Raina. S.E",
     title: "Words for the road",
     text: "You are loved. You are enough.",
   },

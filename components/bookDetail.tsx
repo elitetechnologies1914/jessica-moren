@@ -38,7 +38,7 @@ export default function BookDetail() {
           >
             <Image
               src="/book-mockup.png"
-              alt="Finding My Journey 3D book mockup by Raina Samantha Evangelista"
+              alt="Finding My Journey 3D book mockup by Raina. S.E"
               fill
               sizes="(max-width: 768px) 100vw, 560px"
               className="object-contain"
