@@ -6,7 +6,7 @@ const footerLinks = [
   { label: "Home", href: "#intro" },
   { label: "The Book", href: "#book-details" },
   { label: "The Journey", href: "#journey" },
-  { label: "About Irena", href: "#author" },
+  { label: "About Raina", href: "#author" },
   { label: "Reader Care", href: "#reader-care" },
 ];
 
@@ -14,7 +14,7 @@ const purchaseLinks = [
   { label: "Get the Book", href: "#platforms" },
   { label: "Join the Journey", href: "#reader-care" },
   { label: "Reader Care", href: "#reader-care" },
-  { label: "A Note from Irena", href: "#letters" },
+  { label: "A Note from Raina", href: "#letters" },
 ];
 
 export default function Footer() {
@@ -33,7 +33,7 @@ export default function Footer() {
             aria-label="Back to intro"
           >
             <span className="flex flex-col leading-none text-[#fff8ed]">
-              <span className="font-serif text-2xl tracking-[0.08em]">IRENA SAMANTHA</span>
+              <span className="font-serif text-2xl tracking-[0.08em]">RAINA SAMANTHA</span>
               <span className="mt-2 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-[#e8cba8]">Author of Finding My Journey</span>
             </span>
           </Link>
@@ -90,7 +90,7 @@ export default function Footer() {
 
       <div className="relative border-t border-[#fff8ed]/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 text-xs uppercase tracking-[0.2em] text-[#e8cba8]/72 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12">
-          <p>Copyright {year} Irena Samantha Evangelista. All rights reserved.</p>
+          <p>Copyright {year} Raina Samantha Evangelista. All rights reserved.</p>
           <p>You are loved. You are enough.</p>
         </div>
       </div>

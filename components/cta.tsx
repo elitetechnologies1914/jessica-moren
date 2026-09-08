@@ -55,7 +55,7 @@ export default function CTASection() {
               href="#letters"
               className="px-10 py-4 bg-transparent border border-[#e8cba8]/50 text-[#fff8ed] text-sm font-sans tracking-[0.2em] uppercase font-semibold transition-all duration-300 hover:bg-[#fff8ed] hover:text-[#6e1714] rounded-sm w-full sm:w-auto text-center"
             >
-              Read Irena&apos;s note
+              Read Raina&apos;s note
             </a>
           </div>
         </motion.div>

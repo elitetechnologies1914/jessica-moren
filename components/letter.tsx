@@ -18,8 +18,8 @@ const dancing = Dancing_Script({
 const letters = [
   {
     id: 1,
-    date: "A NOTE FROM IRENA",
-    text: "Dear reader,\n\nI do not know what brought you here. Maybe you are carrying a story that feels too heavy to say out loud. Maybe you are trying to understand someone you love. Maybe you are looking for proof that a difficult chapter is not the whole book.\n\nI wrote Finding My Journey because silence once convinced me I had to face everything alone. Recovery taught me that honesty can be a doorway, support can be a lifeline, and falling does not erase the road already traveled. You do not have to have everything figured out today. Take the next honest step. You are worth staying for, worth healing for, and worthy of a life that feels like home.\n\nWith love, Irena",
+    date: "A NOTE FROM RAINA",
+    text: "Dear reader,\n\nI do not know what brought you here. Maybe you are carrying a story that feels too heavy to say out loud. Maybe you are trying to understand someone you love. Maybe you are looking for proof that a difficult chapter is not the whole book.\n\nI wrote Finding My Journey because silence once convinced me I had to face everything alone. Recovery taught me that honesty can be a doorway, support can be a lifeline, and falling does not erase the road already traveled. You do not have to have everything figured out today. Take the next honest step. You are worth staying for, worth healing for, and worthy of a life that feels like home.\n\nWith love, RAINA",
     rotate: -4,
     x: "0%",
     y: "0%",
@@ -73,7 +73,7 @@ export default function LettersSection() {
         <h2
           className={`${cormorant.className} text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium text-[#fff8ed] tracking-wide opacity-90`}
         >
-          A note from Irena
+          A note from Raina
         </h2>
         <p className="mt-4 text-[0.62rem] font-light uppercase tracking-[0.22em] text-[#a39385] sm:text-xs md:mt-6">
           ( Feel free to move it )

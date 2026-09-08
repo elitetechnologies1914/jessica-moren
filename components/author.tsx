@@ -64,7 +64,7 @@ export default function AuthorSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className={`${cormorant.className} text-5xl md:text-7xl font-medium text-[#6e1714] mb-6 leading-tight italic`}
           >
-            Meet Irena Samantha Evangelista
+            Meet Raina Samantha Evangelista
           </motion.h2>
 
           <motion.div
@@ -83,10 +83,10 @@ export default function AuthorSection() {
             className={`${greatVibes.className} space-y-6 text-2xl md:text-3xl text-[#262223]/80 leading-relaxed max-w-[45ch]`}
           >
             <p>
-              Irena Samantha Evangelista is a memoirist and child-youth-care professional whose work is rooted in honesty, empathy, and the belief that asking for help is an act of strength. Born in Romania and adopted to Toronto at age three, she grew up navigating questions of belonging, bullying, mental-health struggles, grief, and recovery.
+              Raina Samantha Evangelista is a memoirist and child-youth-care professional whose work is rooted in honesty, empathy, and the belief that asking for help is an act of strength. Born in Romania and adopted to Toronto at age three, she grew up navigating questions of belonging, bullying, mental-health struggles, grief, and recovery.
             </p>
             <p>
-              Her experiences led her back to school and into work supporting children, youth, and adults with developmental disabilities and mental-health challenges. Through <span className="italic">Finding My Journey</span>, Irena turns a private battle into an open hand for readers who have been suffering in silence.
+              Her experiences led her back to school and into work supporting children, youth, and adults with developmental disabilities and mental-health challenges. Through <span className="italic">Finding My Journey</span>, Raina turns a private battle into an open hand for readers who have been suffering in silence.
             </p>
             <p>
               I wrote this story so someone else can find their way home.
@@ -101,7 +101,7 @@ export default function AuthorSection() {
             className="mt-12"
           >
             <p className={`${greatVibes.className} text-3xl text-[#6e1714]`}>
-              — Irena
+              —  Raina
             </p>
           </motion.div>
         </div>

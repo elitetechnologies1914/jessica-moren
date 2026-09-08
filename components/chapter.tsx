@@ -23,7 +23,7 @@ const chaptersData = [
     {
         chapter: "PILLAR I",
         title: "Belonging begins with a question",
-        text: "Adopted from Romania at age three and raised in Toronto, Irena grows up carrying both gratitude and questions about where she comes from.",
+        text: "Adopted from Romania at age three and raised in Toronto, Raina grows up carrying both gratitude and questions about where she comes from.",
         image: "/images/1.png",
     },
     {
@@ -41,7 +41,7 @@ const chaptersData = [
     {
         chapter: "PILLAR IV",
         title: "Faith after grief",
-        text: "The loss of her Nonna, vivid dreams, and a return to prayer become part of Irena's search for meaning.",
+        text: "The loss of her Nonna, vivid dreams, and a return to prayer become part of Raina's search for meaning.",
         image: "/images/4.png",
     },
     {
@@ -53,7 +53,7 @@ const chaptersData = [
     {
         chapter: "PILLAR VI",
         title: "A life built for purpose",
-        text: "Recovery leads Irena back to education and work supporting children, youth, and adults with mental-health and developmental challenges.",
+        text: "Recovery leads Raina back to education and work supporting children, youth, and adults with mental-health and developmental challenges.",
         image: "/images/writing-journal.jpg",
     },
 ];
