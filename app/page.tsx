@@ -10,6 +10,7 @@ import Author from "@/components/author";
 import Testimonial from "@/components/testimonial";
 import CTA from "@/components/cta";
 import Footer from "@/components/footer";
+import Video from "@/components/youtube";
 
 export default function Home() {
 return (
@@ -21,6 +22,7 @@ return (
     <Chapter />
     <Letter />
     <BookDetail />
+    <Video />
     <Author />
     <Testimonial />
     <CTA />
