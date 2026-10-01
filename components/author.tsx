@@ -36,7 +36,7 @@ export default function AuthorSection() {
             {/* Cinematic dark/warm vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none" />
             <Image
-              src="/images/writing-journal.jpg"
+              src="/author/author-raina.png"
               alt="A warm writing desk with a journal and candle"
               fill
               sizes="(max-width: 768px) 100vw, 450px"
