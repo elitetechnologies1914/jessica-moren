@@ -1,63 +1,187 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
+import { Cormorant_Garamond } from "next/font/google";
 
-const cards = [
-  { label: "Identity", text: "For the woman who loves her life—and still wonders where the hell she went." },
-  { label: "Marriage", text: "Complicated love, ordinary intimacy, and choosing each other in the middle of upheaval." },
-  { label: "Boundaries", text: "Loving people fiercely without volunteering to carry their whole world." },
-  { label: "Humor", text: "Because the punch line and the truth have a habit of arriving together." },
-  { label: "Reclamation", text: "Not a neat transformation montage. A stubborn, funny journey back to yourself." },
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const testimonialsData = [
+  {
+    author: "Raina. S.E",
+    title: "From Finding My Journey",
+    text: "My story is not over yet.",
+  },
+  {
+  author: "Raina. S.E's father, remembered in the memoir",
+  title: "Words for the road",
+  text: "The train will get to its last stop, but you have to stop at every station in order to get there.",
+  },
+  {
+    author: "Raina. S.E",
+    title: "Words for the road",
+    text: "I am not okay. I need help. And there is nothing wrong with asking for help.",
+  },
+  {
+    author: "Raina. S.E",
+    title: "Words for the road",
+    text: "Tomorrow is a new day. It is okay to fall and get back up.",
+  },
+  {
+    author: "Raina. S.E",
+    title: "Words for the road",
+    text: "You are loved. You are enough.",
+  },
+  
 ];
 
-export default function Testimonial() {
-  const track = useRef<HTMLDivElement>(null);
+const Testimonial: React.FC = () => {
+  const trackRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
-  const allCards = [...cards, ...cards];
+  const [isDragging, setIsDragging] = useState(false);
 
-  const step = () => {
-    const first = track.current?.children[0] as HTMLElement | undefined;
-    return first ? first.offsetWidth + 24 : 0;
+  const startX = useRef(0);
+  const startOffset = useRef(0);
+
+  const originalLength = testimonialsData.length;
+  const data = [...testimonialsData, ...testimonialsData];
+
+  const stepSize = () => {
+    const card = trackRef.current?.children[0] as HTMLElement | undefined;
+    if (!card) return 0;
+    return card.offsetWidth + 20;
   };
-  const update = useCallback((animate = true) => {
-    if (!track.current) return;
-    track.current.style.transition = animate ? "transform 350ms ease" : "none";
-    track.current.style.transform = `translateX(-${index * step()}px)`;
-  }, [index]);
 
-  useEffect(() => { update(); }, [update]);
+  const update = useCallback(
+    (withTransition = true) => {
+      if (!trackRef.current) return;
+      const offset = index * stepSize();
+      trackRef.current.style.transition = withTransition ? "transform 0.3s ease" : "none";
+      trackRef.current.style.transform = `translateX(-${offset}px)`;
+    },
+    [index]
+  );
+
   useEffect(() => {
-    const node = track.current;
-    if (!node) return;
-    const onEnd = () => { if (index >= cards.length) setIndex(0); };
-    node.addEventListener("transitionend", onEnd);
-    return () => node.removeEventListener("transitionend", onEnd);
-  }, [index]);
+    update();
+  }, [update]);
+
+  useEffect(() => {
+    if (!trackRef.current) return;
+    const handleTransitionEnd = () => {
+      if (index >= originalLength) {
+        setIndex(0);
+        update(false);
+      }
+    };
+    const track = trackRef.current;
+    track.addEventListener("transitionend", handleTransitionEnd);
+    return () => track.removeEventListener("transitionend", handleTransitionEnd);
+  }, [index, originalLength, update]);
+
+  const handleNext = useCallback(() => setIndex((prev) => prev + 1), []);
+  const handlePrev = useCallback(() => {
+    if (index === 0) {
+      setIndex(originalLength);
+      update(false);
+    } else {
+      setIndex((prev) => prev - 1);
+    }
+  }, [index, originalLength, update]);
+
+  const handlePointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    startX.current = e.clientX;
+    startOffset.current = index * stepSize();
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging || !trackRef.current) return;
+    const delta = e.clientX - startX.current;
+    const offset = startOffset.current - delta;
+    trackRef.current.style.transition = "none";
+    trackRef.current.style.transform = `translateX(-${offset}px)`;
+  };
+
+  const handlePointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!isDragging) return;
+    setIsDragging(false);
+    const delta = e.clientX - startX.current;
+    const threshold = 60;
+    if (delta < -threshold) handleNext();
+    else if (delta > threshold) handlePrev();
+    else update();
+  };
 
   return (
-    <section className="overflow-hidden bg-[#f7f1e8] py-20 md:py-28">
-      <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-        <div className="px-6 sm:px-8 lg:pl-[max(2.5rem,calc((100vw-1280px)/2))] lg:pr-0">
-          <p className="eyebrow text-[#a9863e]">Between the pages</p>
-          <h2 className="editorial-title mt-5 text-5xl text-[#11100f] sm:text-6xl">Every complicated version of you is welcome here.</h2>
+    <section className="overflow-hidden bg-[#fff8ed] py-20">
+      <div className="grid items-start gap-12 px-0 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+        <div className="px-6 lg:pl-24 lg:pr-0">
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[3.5px] text-[#b82d26]">
+            Words for the road
+          </p>
+          <h1
+            className={`${cormorant.className} italic mt-5 text-[clamp(3.15rem,9vw,4.35rem)] leading-[1.02] tracking-[-0.02em] text-[#6e1714] sm:mt-4`}
+          >
+            A pause for the journey
+          </h1>
         </div>
-        <div className="overflow-hidden pl-6 lg:pl-0">
-          <div ref={track} className="flex gap-6">
-            {allCards.map((card, i) => (
-              <article key={`${card.label}-${i}`} className="min-h-[330px] min-w-[82vw] border border-[#a9863e]/28 bg-[#e9ded0] p-8 shadow-[0_15px_35px_rgba(49,37,31,0.06)] sm:min-w-[420px] lg:min-w-[38%]">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#11100f] font-display text-lg italic text-[#d8b76a]">{card.label.charAt(0)}</div>
-                <p className="eyebrow mt-7 text-[#b66e55]">{card.label}</p>
-                <p className="font-display mt-5 text-3xl italic leading-relaxed text-[#11100f]">{card.text}</p>
-              </article>
+
+        <div
+          className={`overflow-hidden pl-0 ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerLeave={handlePointerUp}
+        >
+          <div ref={trackRef} className="flex gap-6">
+            {data.map((item, i) => (
+              <div
+                key={i}
+                className="min-h-[380px] min-w-[420px] rounded-xl border border-[#d4aaa0] bg-[#fff8ed] p-10 shadow-[0_15px_35px_rgba(110,23,20,0.08)] md:min-w-[40%] lg:min-w-[36%]"
+              >
+                <div className="flex items-center gap-3">
+                  <div
+                    className="flex h-10 w-10 flex-shrink-0 select-none items-center justify-center rounded-full text-sm font-bold text-white bg-[#b82d26]"
+                  >
+                    {item.author.charAt(0).toUpperCase()}
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold leading-tight text-[#6e1714]">{item.author}</p>
+                    <p className="mt-0.5 text-xs leading-tight text-[#9c4a2d] uppercase tracking-widest">{item.title}</p>
+                  </div>
+                </div>
+                <div className="mt-5 h-px w-14 bg-[#d6a35a]" />
+                <p className={`pt-6 text-xl leading-relaxed text-[#262223]/80 italic ${cormorant.className}`}>
+                  &ldquo;{item.text}&rdquo;
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </div>
-      <div className="mt-10 flex items-center gap-4 px-6 sm:px-8 lg:px-[max(2.5rem,calc((100vw-1280px)/2))]">
-        <button type="button" onClick={() => setIndex((current) => current === 0 ? cards.length - 1 : current - 1)} className="focus-ring px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#11100f]">Prev</button>
-        <div className="h-px flex-1 bg-[#a9863e]/40" />
-        <button type="button" onClick={() => setIndex((current) => current + 1)} className="focus-ring px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#11100f]">Next</button>
+
+      <div className="mt-12 flex items-center gap-4 px-6 lg:px-0">
+        <button
+          onClick={handlePrev}
+          className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#6e1714] transition-colors hover:text-[#b82d26]"
+        >
+          Prev
+        </button>
+        <div className="h-[2px] flex-1 bg-[#d6a35a]" />
+        <button
+          onClick={handleNext}
+          className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#6e1714] transition-colors hover:text-[#b82d26]"
+        >
+          Next
+        </button>
       </div>
     </section>
   );
-}
+};
+
+export default Testimonial;

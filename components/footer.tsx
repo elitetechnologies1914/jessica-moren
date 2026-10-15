@@ -1,38 +1,68 @@
-import { Crown, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { BiBookOpen } from "react-icons/bi";
+import { FiArrowUpRight } from "react-icons/fi";
 
-const links = [
-  { label: "Home", href: "/" },
-  { label: "Books", href: "/books" },
-  { label: "About the Author", href: "/about" },
-  { label: "Contact", href: "/contact" },
+const footerLinks = [
+  { label: "Home", href: "#intro" },
+  { label: "The Book", href: "#book-details" },
+  { label: "The Journey", href: "#journey" },
+  { label: "About Raina. S.E", href: "#author" },
+  { label: "Reader Care", href: "#reader-care" },
+];
+
+const purchaseLinks = [
+  { label: "Get the Book", href: "#platforms" },
+  { label: "Join the Journey", href: "#reader-care" },
+  { label: "Reader Care", href: "#reader-care" },
+  { label: "A Note from Raina. S.E", href: "#letters" },
 ];
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="paper-grain relative overflow-hidden bg-[#11100f] text-[#f7f1e8]">
-      <div className="gold-rule" />
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-8 md:grid-cols-[1.4fr_0.6fr_0.75fr] md:py-20 lg:px-10">
+    <footer className="relative overflow-hidden bg-[#6e1714] text-[#fff8ed]">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_-10%,rgba(214,163,90,0.24),transparent_36%),linear-gradient(180deg,rgba(110,23,20,0.92)_0%,rgba(38,34,35,1)_64%)]" />
+      <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#d6a35a]/60 to-transparent" />
+
+      <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-8 md:grid-cols-[1.25fr_0.75fr_0.8fr] md:gap-14 md:py-20 lg:px-12">
         <div className="max-w-xl">
-          <Link href="/" className="focus-ring inline-flex items-center gap-3" aria-label="Jessica Moren home">
-            <Crown className="h-8 w-8 text-[#d8b76a]" strokeWidth={1.4} />
-            <span className="font-display text-3xl font-semibold tracking-[0.06em]">JESSICA MOREN</span>
+          <Link
+            href="#intro"
+            className="inline-block transition-opacity duration-200 hover:opacity-90"
+            aria-label="Back to intro"
+          >
+            <span className="flex flex-col leading-none text-[#fff8ed]">
+              <span className="font-serif text-2xl tracking-[0.08em]">RAINA. S.E</span>
+              <span className="mt-2 text-[0.62rem] font-semibold uppercase tracking-[0.3em] text-[#e8cba8]">Author of Finding My Journey</span>
+            </span>
           </Link>
-          <p className="mt-6 max-w-lg font-display text-2xl italic leading-relaxed text-[#f7f1e8]/78">
-            The crown was never the point. The woman wearing it is.
+          <p className="mt-6 max-w-[34rem] text-base font-light leading-8 text-[#e8cba8]/82 sm:text-lg">
+            Finding your way home starts with one honest step.
           </p>
-          <p className="mt-6 max-w-lg text-sm leading-7 text-[#f7f1e8]/58">
-            Honest stories about midlife, identity, marriage, family, and finding your voice again.
-          </p>
+
+          <Link
+            href="#book-details"
+            className="mt-8 inline-flex items-center gap-3 rounded-full border border-[#d6a35a]/55 bg-[#b82d26]/35 px-6 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#fff8ed] transition-all duration-300 hover:border-[#fff8ed] hover:bg-[#b82d26]"
+          >
+            <BiBookOpen className="text-base" />
+            Get the Book
+          </Link>
         </div>
 
         <nav aria-label="Footer navigation">
-          <h2 className="eyebrow text-[#d8b76a]">Navigate</h2>
-          <ul className="mt-6 space-y-4">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className="focus-ring text-sm text-[#f7f1e8]/70 transition-colors hover:text-[#d8b76a]">
+          <h2 className="text-xs font-bold uppercase tracking-[0.32em] text-[#d6a35a]">
+            Navigate
+          </h2>
+          <ul className="mt-6 space-y-3">
+            {footerLinks.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="group inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-[#fff8ed]/72 transition-colors hover:text-[#fff8ed]"
+                >
                   {link.label}
+                  <FiArrowUpRight className="text-[0.8rem] opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
                 </Link>
               </li>
             ))}
@@ -40,21 +70,28 @@ export default function Footer() {
         </nav>
 
         <div>
-          <h2 className="eyebrow text-[#d8b76a]">Continue</h2>
-          <div className="mt-6 space-y-4">
-            <Link href="/books" className="focus-ring group flex items-center gap-2 text-sm text-[#f7f1e8]/70 transition-colors hover:text-[#d8b76a]">
-              Explore the series <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-            <Link href="/contact" className="focus-ring group flex items-center gap-2 text-sm text-[#f7f1e8]/70 transition-colors hover:text-[#d8b76a]">
-              Send a note <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
+          <h2 className="text-xs font-bold uppercase tracking-[0.32em] text-[#d6a35a]">
+            Continue
+          </h2>
+          <ul className="mt-6 space-y-3">
+            {purchaseLinks.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="text-sm uppercase tracking-[0.2em] text-[#fff8ed]/72 transition-colors hover:text-[#fff8ed]"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-[0.68rem] uppercase tracking-[0.18em] text-[#f7f1e8]/45 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-10">
-          <p>© {new Date().getFullYear()} Jessica Moren. All rights reserved.</p>
-          <p>Stories and personal experiences are not medical advice.</p>
+
+      <div className="relative border-t border-[#fff8ed]/10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 text-xs uppercase tracking-[0.2em] text-[#e8cba8]/72 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12">
+          <p>Copyright {year} Raina. S.E All rights reserved.</p>
+          <p>You are loved. You are enough.</p>
         </div>
       </div>
     </footer>
