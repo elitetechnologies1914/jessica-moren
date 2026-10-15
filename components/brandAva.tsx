@@ -1,64 +1,31 @@
-"use client"
+import Link from "next/link";
+import { ArrowRight, BookOpen, Mail, UserRound } from "lucide-react";
 
-import React from "react";
-import { Cormorant_Garamond } from "next/font/google";
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const platforms = [
-  { name: "Get the Book", detail: "Purchase details coming soon", link: "#book-details" },
-  { name: "Join the Journey", detail: "Stay connected for author news", link: "#reader-care" },
-  { name: "Reader Care", detail: "Read the content advisory", link: "#reader-care" },
+const cards = [
+  { title: "Explore the Series", detail: "Meet Book One and preview what comes next.", href: "/books", icon: BookOpen },
+  { title: "Meet Jessica", detail: "Get to know the candid voice behind the crown.", href: "/about", icon: UserRound },
+  { title: "Send a Note", detail: "Reader, book-club, press, and media inquiries.", href: "/contact", icon: Mail },
 ];
 
 export default function BrandAva() {
   return (
-    <section id="platforms" className="w-full bg-gradient-to-br from-[#e8cba8] via-[#fff8ed] to-[#d4aaa0] py-20 px-6 md:px-12 lg:px-24">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 max-w-2xl">
-          <h2 className={`${cormorant.className} text-4xl md:text-5xl font-bold text-[#6e1714] mb-4 tracking-tight`}>
-            Begin the journey
-          </h2>
-          <p className="text-[#262223] text-base md:text-lg leading-relaxed">
-            Finding My Journey is a candid memoir about survival, recovery, and the courage to take one more honest step.
-          </p>
+    <section className="bg-[#e9ded0] px-6 py-20 sm:px-8 md:py-24 lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <p className="eyebrow text-[#a9863e]">Welcome to the royal mess</p>
+          <h2 className="editorial-title mt-5 text-5xl text-[#11100f] sm:text-6xl">No fairy tale. No filter.</h2>
+          <p className="mt-6 max-w-2xl text-base leading-8 text-[#31251f]/72">A wickedly funny, emotionally candid series about identity, perimenopause, marriage, family, boundaries, and rediscovering the woman under everyone else’s expectations.</p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {platforms.map((platform, idx) => (
-            <a
-              key={idx}
-              href={platform.link}
-              className="group flex items-center justify-between bg-[#fff8ed] rounded-xl p-5 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
-            >
-              <div className="flex flex-col">
-                <span className="font-semibold text-[#6e1714] text-lg mb-1">
-                  {platform.name}
-                </span>
-                <span className="text-[#262223]/70 text-sm">
-                  {platform.detail}
-                </span>
+        <div className="grid gap-5 md:grid-cols-3">
+          {cards.map((card) => (
+            <Link key={card.href} href={card.href} className="focus-ring group flex min-h-48 flex-col justify-between border border-[#a9863e]/25 bg-[#f7f1e8] p-7 shadow-[0_15px_35px_rgba(49,37,31,0.05)] transition duration-300 hover:-translate-y-1 hover:border-[#a9863e]/55 hover:shadow-[0_20px_45px_rgba(49,37,31,0.1)]">
+              <card.icon className="h-7 w-7 text-[#b66e55]" strokeWidth={1.5} />
+              <div className="mt-8">
+                <h3 className="font-display text-3xl font-semibold text-[#11100f]">{card.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#31251f]/65">{card.detail}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-[#a9863e]">Continue <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
               </div>
-              <div className="text-[#9c4a2d] group-hover:text-[#b82d26] transition-colors duration-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-                  />
-                </svg>
-              </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

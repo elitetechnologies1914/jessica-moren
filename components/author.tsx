@@ -1,111 +1,34 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-});
-
-const greatVibes = Great_Vibes({
-  subsets: ["latin"],
-  weight: "400",
-});
-
-export default function AuthorSection() {
+export default function Author() {
   return (
-    <section className="relative w-full bg-[#e8cba8] py-24 md:py-32 overflow-hidden" id="author">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-16 md:gap-24">
-        
-        {/* Left Side: Soft Portrait */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="w-full md:w-1/2 relative flex justify-center"
-        >
-          {/* Aesthetic frame offset */}
-          <div className="absolute inset-0 bg-[#d4aaa0] translate-x-4 translate-y-4 rounded-sm pointer-events-none max-w-[450px] mx-auto aspect-[3/4]" />
-          
-          <div className="relative w-full max-w-[450px] aspect-[3/4] overflow-hidden rounded-sm shadow-xl z-10">
-            {/* Cinematic dark/warm vignette */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 pointer-events-none" />
-            <Image
-              src="/author/author-raina.png"
-              alt="A warm writing desk with a journal and candle"
-              fill
-              sizes="(max-width: 768px) 100vw, 450px"
-              className="object-cover sepia-[12%]"
-            />
+    <section id="author" className="relative overflow-hidden bg-[#e9ded0] py-24 md:py-32">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-16 px-6 md:flex-row md:gap-20 md:px-10">
+        <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1 }} className="relative flex w-full justify-center md:w-1/2">
+          <div className="absolute inset-0 mx-auto aspect-[3/4] max-w-[470px] translate-x-4 translate-y-4 bg-[#d8b76a]" />
+          <div className="relative z-10 aspect-[3/4] w-full max-w-[470px] overflow-hidden shadow-xl">
+            <Image src="/images/writers-desk.png" alt="A writer’s desk with coffee, handwritten pages, and a fountain pen" fill sizes="(max-width: 768px) 100vw, 470px" className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#11100f]/38 to-transparent" />
+            <p className="absolute bottom-6 left-6 right-6 font-display text-2xl italic leading-snug text-[#f7f1e8]">A candid voice for the parts of life we are usually expected to gloss over.</p>
           </div>
         </motion.div>
 
-        {/* Right Side: Emotional Biography */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="block mb-6 text-xs md:text-sm font-sans font-bold uppercase tracking-[0.3em] text-[#b82d26]"
-          >
-            Meet the Author
-          </motion.span>
-          
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className={`${cormorant.className} text-5xl md:text-7xl font-medium text-[#6e1714] mb-6 leading-tight italic`}
-          >
-            Meet Raina. S.E
-          </motion.h2>
-
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-16 h-[1px] bg-[#d6a35a] mb-8 origin-left"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className={`${greatVibes.className} space-y-6 text-2xl md:text-3xl text-[#262223]/80 leading-relaxed max-w-[45ch]`}
-          >
-            <p>
-              Raina. S.E. is a memoirist and child-youth-care professional whose work is rooted in honesty, empathy, and the belief that asking for help is an act of strength. Born in Romania and adopted to Toronto at age three, she grew up navigating questions of belonging, bullying, mental-health struggles, grief, and recovery.
-            </p>
-            <p>
-              Her experiences led her back to school and into work supporting children, youth, and adults with developmental disabilities and mental-health challenges. Through <span className="italic">Finding My Journey</span>, Raina. S.E. turns a private battle into an open hand for readers who have been suffering in silence.
-            </p>
-            <p>
-              I wrote this story so someone else can find their way home.
-            </p>
+        <div className="w-full md:w-1/2">
+          <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="eyebrow text-[#a9863e]">Meet the author</motion.p>
+          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="editorial-title mt-6 text-5xl text-[#11100f] sm:text-6xl lg:text-7xl">Jessica Moren doesn’t do perfectly polished.</motion.h2>
+          <motion.div initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="mt-8 h-px w-16 origin-left bg-[#a9863e]" />
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }} className="mt-8 space-y-5 text-base leading-8 text-[#31251f]/75 sm:text-lg">
+            <p>Jessica is the voice behind <em>The Perimenopausal Princess</em>, a candid, irreverent exploration of midlife, love, identity, and the untidy work of becoming yourself.</p>
+            <p>Her writing moves between big laughs and unguarded moments—because a woman can be fierce and tired, loving and frustrated, brave and thoroughly over it.</p>
+            <p className="font-display text-2xl italic text-[#b66e55]">The real story isn’t losing the crown. It’s remembering who you are without it.</p>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-12"
-          >
-            <p className={`${greatVibes.className} text-3xl text-[#6e1714]`}>
-              —  Raina. S.E.
-            </p>
-          </motion.div>
+          <Link href="/about" className="focus-ring mt-9 inline-flex min-h-12 items-center gap-3 bg-[#11100f] px-7 py-4 text-xs font-bold uppercase tracking-[0.18em] text-[#f7f1e8]">More About Jessica <ArrowRight className="h-4 w-4" /></Link>
         </div>
-
       </div>
     </section>
   );
