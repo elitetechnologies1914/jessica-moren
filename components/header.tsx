@@ -48,7 +48,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/[.07] bg-[#11100f]/90 text-[#f7f1e8] shadow-[0_14px_45px_rgba(0,0,0,0.24)] backdrop-blur-xl supports-[backdrop-filter]:bg-[#11100f]/78">
+    <header className="relative z-50 border-b border-white/[.07] bg-[#11100f]/90 text-[#f7f1e8] shadow-[0_14px_45px_rgba(0,0,0,0.24)] backdrop-blur-xl supports-[backdrop-filter]:bg-[#11100f]/78">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d8b76a]/80 to-transparent" />
 
       <div className="mx-auto flex h-[88px] max-w-[1440px] items-center justify-between gap-6 px-5 sm:px-8 lg:px-10">

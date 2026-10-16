@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, CalendarDays, Crown } from "lucide-react";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import GSAPBook from "@/components/gsapBookSection";
 
 export const metadata: Metadata = {
   title: "Books",
@@ -53,6 +54,8 @@ export default function BooksPage() {
             </div>
           </div>
         </section>
+
+        <GSAPBook/>
 
         <section
           id="book-one"

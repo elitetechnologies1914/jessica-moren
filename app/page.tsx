@@ -10,6 +10,7 @@ import Testimonial from "@/components/testimonial";
 import CTA from "@/components/cta";
 import Footer from "@/components/footer";
 import Video from "@/components/youtube";
+// import AuthorImageSection from "@/components/authorImageSection";
 export default function Home() {
 return (
   <>
@@ -17,6 +18,7 @@ return (
     <main id="main-content">
       <HeroSection />
       <BrandAva />
+      {/* <AuthorImageSection /> */}
       <SecSlidesPinning />
       <Chapter />
       <Letter />
