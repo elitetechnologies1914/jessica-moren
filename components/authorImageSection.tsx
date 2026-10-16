@@ -14,13 +14,13 @@ gsap.registerPlugin(ScrollTrigger, Flip, ExpoScaleEase, useGSAP);
 
 const images = [
   "/author-images/1.jpg",
-  "/author-images/2.jpg",
-  "/author-images/11.jpg",
-  "/author-images/4.jpg",
-  "/author-images/5.jpg",
-  "/author-images/6.jpg",
+  "/author-images/12.jpg",
+  "/author-images/16.png",
+  "/author-images/13.jpg",
+  "/author-images/15.jpg",
+  "/author-images/16.jpg",
   "/author-images/7.jpg",
-  "/author-images/8.jpg",
+  "/author-images/14.jpg",
 ];
 
 export default function AuthorImageSection() {
