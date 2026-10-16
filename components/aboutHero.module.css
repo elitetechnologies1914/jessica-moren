@@ -1,0 +1,342 @@
+/* Animated About page hero */
+.hero {
+  --ticker-height: 3.25rem;
+  position: relative;
+  isolation: isolate;
+  height: max(46rem, 100svh);
+  overflow: hidden;
+  background: #020402;
+  color: #fff;
+}
+
+.grain {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.glowCenter,
+.glowCorner,
+.glowEdge {
+  position: absolute;
+  z-index: 0;
+  border-radius: 999px;
+  filter: blur(12px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.glowCenter {
+  bottom: -16%;
+  left: 18%;
+  width: 61%;
+  height: 92%;
+  background: radial-gradient(ellipse at center, rgba(244, 247, 41, 0.96) 0%, rgba(199, 210, 33, 0.68) 22%, rgba(116, 127, 30, 0.36) 45%, rgba(28, 34, 15, 0.18) 65%, transparent 78%);
+}
+
+.glowCorner {
+  top: -48%;
+  right: -15%;
+  width: 42%;
+  height: 92%;
+  background: radial-gradient(circle, rgba(239, 242, 0, 0.92) 0%, rgba(185, 194, 0, 0.46) 32%, transparent 70%);
+}
+
+.glowEdge {
+  bottom: -42%;
+  left: -19%;
+  width: 36%;
+  height: 76%;
+  background: radial-gradient(circle, rgba(225, 232, 65, 0.78) 0%, rgba(161, 172, 46, 0.35) 42%, transparent 72%);
+}
+
+.orbit {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 31%;
+  width: 37rem;
+  max-width: 48vw;
+  aspect-ratio: 1;
+  border: 1px solid rgba(243, 244, 88, 0.13);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3.5rem rgba(239, 242, 0, 0.025), 0 0 0 9rem rgba(239, 242, 0, 0.018);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orbit::before,
+.orbit::after {
+  position: absolute;
+  border-radius: 50%;
+  background: #f0f22c;
+  box-shadow: 0 0 24px rgba(240, 242, 44, 0.9);
+  content: "";
+}
+
+.orbit::before {
+  top: 12%;
+  right: 12%;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.orbit::after {
+  bottom: 2%;
+  left: 29%;
+  width: 0.3rem;
+  height: 0.3rem;
+}
+
+.manifesto {
+  position: absolute;
+  z-index: 5;
+  top: 10.5%;
+  left: 2.25%;
+  display: flex;
+  width: min(25rem, 29vw);
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(3.35rem, 4.65vw, 4.7rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.75;
+  text-wrap: balance;
+}
+
+.manifesto span {
+  display: block;
+  transform-origin: left center;
+  will-change: transform, opacity;
+}
+
+.manifesto span + span {
+  margin-top: 0.09em;
+}
+
+.name {
+  position: absolute;
+  z-index: 2;
+  top: 46%;
+  left: 19%;
+  margin: 0;
+  color: #ffffcf;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(5.4rem, 9vw, 9rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.82;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 42px rgba(225, 230, 68, 0.2);
+}
+
+.name span {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.portrait {
+  position: absolute;
+  z-index: 4;
+  bottom: calc(var(--ticker-height) - 0.75rem);
+  left: 50%;
+  width: clamp(20rem, 27vw, 27rem);
+  aspect-ratio: 941 / 1672;
+  translate: -50% 0;
+  transform-origin: bottom center;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.portraitFloat,
+.portraitTilt {
+  position: absolute;
+  inset: 0;
+  transform-origin: bottom center;
+  will-change: transform;
+}
+
+.portraitImage {
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 30px 38px rgba(0, 0, 0, 0.46));
+  user-select: none;
+}
+
+.summary {
+  position: absolute;
+  z-index: 5;
+  right: 4.5%;
+  bottom: 15%;
+  width: min(24rem, 29vw);
+  margin: 0;
+  font-size: clamp(1rem, 1.38vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.02;
+  text-wrap: pretty;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.72);
+  will-change: transform, opacity;
+}
+
+.ticker {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: var(--ticker-height);
+  overflow: hidden;
+  background: #f2f329;
+  color: #090a07;
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  height: 100%;
+  will-change: transform;
+}
+
+.tickerGroup {
+  display: flex;
+  height: 100%;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.tickerItem {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 2.5rem;
+  padding-left: 2.5rem;
+  font-size: 1.04rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.tickerStar {
+  font-size: 0.72em;
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    height: max(46rem, 100svh);
+  }
+
+  .manifesto {
+    top: 8%;
+    left: 1.5rem;
+    width: 18rem;
+    font-size: clamp(3rem, 6.5vw, 4rem);
+  }
+
+  .name {
+    top: 43%;
+    left: 5%;
+    font-size: clamp(5rem, 12vw, 7.5rem);
+  }
+
+  .portrait {
+    left: 58%;
+    width: clamp(20rem, 44vw, 26rem);
+  }
+
+  .orbit {
+    top: 15%;
+    left: 37%;
+    width: 29rem;
+    max-width: 58vw;
+  }
+
+  .summary {
+    right: 2rem;
+    bottom: 12%;
+    width: min(22rem, 36vw);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero {
+    --ticker-height: 3rem;
+    height: max(49rem, 100svh);
+  }
+
+  .glowCenter {
+    bottom: -4%;
+    left: -10%;
+    width: 120%;
+    height: 78%;
+  }
+
+  .glowCorner {
+    top: -32%;
+    right: -45%;
+    width: 95%;
+    height: 75%;
+  }
+
+  .manifesto {
+    top: 3.5%;
+    left: 1.25rem;
+    width: 16rem;
+    font-size: clamp(2.75rem, 12vw, 3.8rem);
+  }
+
+  .name {
+    top: 38%;
+    left: 1.15rem;
+    font-size: clamp(4.4rem, 20vw, 6.4rem);
+    white-space: normal;
+  }
+
+  .name span {
+    display: block;
+  }
+
+  .portrait {
+    bottom: calc(var(--ticker-height) - 0.5rem);
+    left: 65%;
+    width: clamp(19rem, 78vw, 24rem);
+    opacity: 0.96;
+  }
+
+  .orbit {
+    top: 23%;
+    left: 28%;
+    width: 23rem;
+    max-width: 88vw;
+  }
+
+  .summary {
+    right: auto;
+    bottom: 5.25rem;
+    left: 1.25rem;
+    width: min(19rem, 78vw);
+    padding: 0.75rem;
+    background: rgba(2, 4, 2, 0.4);
+    box-shadow: 0 0 2.5rem rgba(0, 0, 0, 0.3);
+    font-size: 0.92rem;
+    line-height: 1.08;
+    backdrop-filter: blur(3px);
+  }
+
+  .tickerItem {
+    gap: 1.5rem;
+    padding-left: 1.5rem;
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tickerTrack {
+    transform: translateX(-8%);
+  }
+}
